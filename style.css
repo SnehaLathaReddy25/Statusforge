@@ -1,0 +1,538 @@
+/*
+  Design tokens
+  Spacing scale: 8, 16, 24, 32, 48px
+  Type scale: 14, 16, 20, 24, 32px
+*/
+:root {
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 48px;
+
+    --text-sm: 14px;
+    --text-base: 16px;
+    --text-lg: 20px;
+    --text-xl: 24px;
+    --text-2xl: 32px;
+
+    --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    --radius: 8px;
+
+    /* Neutral grays (3-step scale) */
+    --gray-100: #f4f5f7;
+    --gray-500: #6b7280;
+    --gray-900: #1f2328;
+
+    /* Accent (teal) */
+    --accent: #0f766e;
+    --accent-dark: #0b5c56;
+    --accent-bg: #e6f4f3;
+
+    /* Semantic status colors */
+    --status-operational-bg: #e3f9e8;
+    --status-operational-text: #1a7f37;
+    --status-degraded-bg: #fef3e2;
+    --status-degraded-text: #b45309;
+    --status-down-bg: #fdecea;
+    --status-down-text: #c62828;
+
+    /* Aliases used throughout the sheet */
+    --color-bg: var(--gray-100);
+    --color-surface: #fff;
+    --color-text: var(--gray-900);
+    --color-text-muted: var(--gray-500);
+    --color-border: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-family);
+    background: var(--color-bg);
+    margin: 0;
+    padding: var(--space-4);
+    color: var(--color-text);
+    font-size: var(--text-base);
+    line-height: 1.5;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-family);
+    line-height: 1.2;
+    font-weight: 700;
+    margin: 0 0 var(--space-2);
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-align: center;
+    margin-bottom: var(--space-4);
+    color: var(--gray-900);
+}
+
+h2 {
+    font-size: var(--text-lg);
+    margin-top: 0;
+}
+
+p {
+    margin: 0 0 var(--space-2);
+    line-height: 1.5;
+}
+
+img, table {
+    max-width: 100%;
+}
+
+a {
+    font-family: inherit;
+}
+
+/* Universal focus and clickable-target rules */
+a,
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: var(--radius);
+}
+
+button {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Service cards */
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    justify-content: center;
+}
+
+.card {
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: var(--space-3);
+    width: 200px;
+    max-width: 100%;
+    text-align: center;
+}
+
+.card h2 {
+    margin: 0 0 var(--space-1);
+    font-size: var(--text-base);
+    font-weight: 600;
+}
+
+/* Status badges */
+.status {
+    display: inline-block;
+    padding: var(--space-1) var(--space-2);
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: var(--text-sm);
+}
+
+.status--operational {
+    background: var(--status-operational-bg);
+    color: var(--status-operational-text);
+}
+
+.status--degraded {
+    background: var(--status-degraded-bg);
+    color: var(--status-degraded-text);
+}
+
+.status--down {
+    background: var(--status-down-bg);
+    color: var(--status-down-text);
+}
+
+/* Login page */
+.login-wrap {
+    max-width: 320px;
+    width: 100%;
+    margin: var(--space-5) auto;
+    background: var(--color-surface);
+    padding: var(--space-4);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.login-wrap h1 {
+    margin-top: 0;
+    font-size: var(--text-lg);
+    text-align: left;
+    margin-bottom: var(--space-3);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.login-form label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+}
+
+.login-form input {
+    padding: var(--space-1);
+    min-height: 44px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: var(--text-base);
+    font-family: inherit;
+    transition: border-color 0.15s ease;
+}
+
+.login-form input:hover {
+    border-color: var(--gray-500);
+}
+
+.login-form button {
+    margin-top: var(--space-2);
+    padding: var(--space-1) var(--space-2);
+    min-height: 44px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: var(--text-base);
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.05s ease;
+}
+
+.login-form button:hover {
+    background: var(--accent-dark);
+}
+
+.login-form button:active {
+    background: var(--accent-dark);
+    transform: translateY(1px);
+}
+
+.error {
+    color: var(--status-down-text);
+    font-size: var(--text-sm);
+    margin: 0 0 var(--space-2);
+}
+
+/* Admin dashboard header */
+.dashboard-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2) var(--space-3);
+    margin-bottom: var(--space-4);
+    text-align: center;
+}
+
+.dashboard-header h1 {
+    margin: 0;
+}
+
+.logout-link {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: var(--text-base);
+    text-decoration: none;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius);
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.logout-link:hover {
+    background: var(--accent-bg);
+    color: var(--accent-dark);
+    text-decoration: underline;
+}
+
+.logout-link:active {
+    background: var(--accent-bg);
+    color: var(--accent-dark);
+    transform: translateY(1px);
+}
+
+/* Panels (forms, tables, timeline) */
+.panel {
+    max-width: 600px;
+    width: 100%;
+    margin: var(--space-4) auto;
+    background: var(--color-surface);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.panel h2 {
+    margin-top: 0;
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-2);
+}
+
+.incident-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.incident-form label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+}
+
+.incident-form input,
+.incident-form textarea,
+.incident-form select {
+    padding: var(--space-1);
+    min-height: 44px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: var(--text-base);
+    font-family: inherit;
+    transition: border-color 0.15s ease;
+}
+
+.incident-form textarea {
+    min-height: 88px;
+}
+
+.incident-form input:hover,
+.incident-form textarea:hover,
+.incident-form select:hover {
+    border-color: var(--gray-500);
+}
+
+.incident-form button {
+    margin-top: var(--space-2);
+    padding: var(--space-1) var(--space-2);
+    min-height: 44px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: var(--text-base);
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.05s ease;
+}
+
+.incident-form button:hover {
+    background: var(--accent-dark);
+}
+
+.incident-form button:active {
+    background: var(--accent-dark);
+    transform: translateY(1px);
+}
+
+.incident-table-wrap {
+    width: 100%;
+}
+
+.incident-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.incident-table th,
+.incident-table td {
+    text-align: left;
+    padding: var(--space-1);
+    border-bottom: 1px solid var(--color-border);
+    font-size: var(--text-sm);
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+.incident-table th {
+    font-weight: 600;
+}
+
+.timeline-panel {
+    max-width: 700px;
+    width: 100%;
+}
+
+.timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.timeline-item {
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.timeline-item:last-child {
+    border-bottom: none;
+}
+
+.timeline-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-1) var(--space-2);
+}
+
+.timeline-title {
+    font-weight: 600;
+    font-size: var(--text-base);
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+.timeline-description {
+    margin: var(--space-1) 0;
+    color: #444;
+    font-size: var(--text-sm);
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+.timeline-date {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+}
+
+.error-panel {
+    text-align: center;
+    max-width: 480px;
+}
+
+.error-panel h1 {
+    font-size: var(--text-xl);
+    margin-top: 0;
+    margin-bottom: var(--space-2);
+}
+
+.error-panel .logout-link {
+    justify-content: center;
+    margin-top: var(--space-2);
+}
+
+.empty-state {
+    color: var(--color-text-muted);
+    text-align: center;
+    padding: var(--space-2) 0;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: var(--space-2);
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .services {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .panel {
+        padding: var(--space-2);
+        margin: var(--space-3) auto;
+    }
+
+    .login-wrap {
+        margin: var(--space-3) auto;
+        padding: var(--space-2);
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+    }
+
+    .incident-table {
+        min-width: 0;
+        width: 100%;
+        display: block;
+    }
+
+    .incident-table thead {
+        display: none;
+    }
+
+    .incident-table tbody,
+    .incident-table tr,
+    .incident-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .incident-table tr {
+        margin-bottom: var(--space-2);
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: var(--space-1);
+    }
+
+    .incident-table td {
+        padding: var(--space-1) 0;
+        border-bottom: none;
+        font-size: var(--text-sm);
+    }
+
+    .incident-table td::before {
+        content: attr(data-label);
+        display: block;
+        font-weight: 600;
+        font-size: var(--text-sm);
+        color: var(--color-text-muted);
+    }
+}
+
+@media (max-width: 400px) {
+    body {
+        padding: var(--space-1);
+    }
+
+    .card,
+    .panel,
+    .login-wrap {
+        padding: var(--space-2);
+    }
+}
